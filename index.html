@@ -1,21 +1,425 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="minimum-scale=1, initial-scale=1, width=device-width"
-    />
-    <title>URLS - Error 404</title>
-  </head>
+<!DOCTYPE html><html lang="en"><head><script src="https://unpkg.com/vue@next"></script>
+    <title>Error 404 - URLS</title>
+  <style>:root {
+  --navbarHeight: 100px;
+}
+h1 {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  color: black;
+}
+h2 {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  color: black;
+}
+h3 {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  color: black;
+}
+h4 {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  color: black;
+}
+h5 {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  color: black;
+}
+a {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  color: white;
+}
+.here {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  color: black;
+}
+body {
+  margin: 0;
+  background: #ffffff;
+}
+#navbar,
+#footer {
+  background: #21bcff;
+  height: calc(var(--navbarHeight) / 2);
+  position: absolute;
+  width: 100%;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: calc(var(--navbarHeight) / 4) 0px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  box-shadow: 0px 5px 15px #ccc;
+  border-radius: 10px;
+}
+#footer {
+  display: block;
+  height: 100px;
+}
+#block {
+  display: flex;
+  width: 350px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+#block img {
+  margin: 0 10px;
+  height: 50px;
+}
+#navbar ul,
+#footer > ul {
+  list-style: none;
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+#footer ul ul {
+  display: block;
+  font-size: 20px;
+}
+#navbar li,
+#footer ul li {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#navbar a {
+  text-decoration: none;
+  display: flex;
+  flex: 1;
+}
+#navbar ul li.button p {
+  text-align: center;
+  width: 120px;
+  background: white;
+  color: #5d657c;
+  padding: 10px;
+  border-radius: 20pc;
+  border: #00000045 solid 2px;
+  height: fit-content;
+  margin: 0;
+  user-select: none;
+}
+#navbar ul li:not(.button),
+#navbar ul li.button p {
+  cursor: pointer;
+}
+
+#navbar ul li:not(.button):hover {
+  background: #00000021;
+}
+#navbar ul li.button p:hover {
+  border: none;
+  box-shadow: 0px 0px 8px #888888;
+}
+#content {
+  padding-top: var(--navbarHeight);
+  min-height: 400px;
+}
+#content.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#content.h1 {
+  color: black;
+}
+#blocks-banner {
+  display: block;
+  width: 100%;
+}
+#copyright {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 18px;
+  color: white;
+}
+
+/* Small Screens CSS */
+@media (max-width: 1000px) {
+  [data-smallsize] {
+    display: none !important;
+  }
+}
+
+/* Scrollbar */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: none;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+#intro-video {
+  opacity: 1;
+  transition: opacity 1s;
+  position: fixed;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  background: #000;
+}
+#intro-video.fade {
+  opacity: 0;
+}
+#editor {
+  height: 500px;
+  display: flex;
+}
+textarea,
+#editor > div {
+  display: inline-block;
+  flex: 1;
+  height: 100%;
+  vertical-align: top;
+  box-sizing: border-box;
+  padding: 0 20px;
+  border: 3px solid #333;
+  background-color: #222;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  font-size: 14px;
+  font-family: "Monaco", courier, monospace;
+  padding: 20px;
+}
+
+*:not(pre) > code,
+pre {
+  background: #0000003d;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#featured-iframe {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 10px;
+}
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.contributor {
+  color: inherit;
+  border-radius: 5px;
+  border: 1.5px #00000030 solid;
+  transition: background-color 0.15s ease-in-out;
+  flex: 0 0 33.333333%;
+  max-width: 30%;
+}
+.contributor a {
+  padding: 0.375rem 15px;
+  color: inherit;
+  display: flex;
+  text-decoration: none;
+}
+.contributor-icon {
+  margin-right: 0.75rem;
+  height: 64px;
+  width: 64px;
+}
+.contributor-info {
+  display: flex;
+  flex: 1 0 0;
+  max-width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+.contributor-name {
+  font-size: 1.25rem;
+  line-height: 1;
+  word-break: break-all;
+  margin: 0;
+}
+.contributor-items {
+  display: flex;
+}
+.contributor:hover {
+  background: #00000030;
+}
+.dvd {
+border-radius: 20px;
+border: 5px;
+border-style: solid;
+border-color: #ddd;
+}
+ 
+</style><script src="https://unpkg.com/marked@0.3.6"></script><link href="/assets/logo.svg" rel="icon">
+
+
+    <script src="https://scratchblocks.github.io/js/scratchblocks-v3.4-min.js"></script>
+    <link href="https://gitcdn.link/repo/ccampbell/rainbow/master/themes/css/rainbow.css" rel="stylesheet" type="text/css">
+    <script src="https://gitcdn.link/repo/ccampbell/rainbow/master/dist/rainbow.min.js"></script>
+  
+
+<!-- Primary Meta Tags -->
+<title>URLS, The Shortener</title>
+<meta name="title" content="URLS, The Shortener">
+<meta name="description" content="The title is pretty self-explanatory...">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://real608.github.io/urls/">
+<meta property="og:title" content="URLS, The Shortener">
+<meta property="og:description" content="The title is pretty self-explanatory...">
+<meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://real608.github.io/urls/">
+<meta property="twitter:title" content="URLS, The Shortener">
+<meta property="twitter:description" content="The title is pretty self-explanatory...">
+<meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+</head>
   <body>
-    <center><h1><u>URLS</u></h1></center>
-    <center><p>A URL Shortener!</p></center>
-    <p>Short URL is invalid! (Or you have been spamming the site too much)</p>
-    <p>
-      <a href="https://github.com/real608/urls/issues">
-        You can make one here though!
+    <div style="display: none" v-show="true">
+      <navbar></navbar>
+      <div id="content" v-html="html"></div>
+      <footerbar></footerbar>
+    </div>
+    <script>
+      window.app = Vue.createApp({
+        data() {
+          return {
+            html: marked(
+              `
+<center><h2>Well This Is Awkward...</h2></center>
+<center><h3>It seems that the URL you entered is not valid!</h3>
+
+<h4>But you can create one <a href="https://github.com/real608/urls/issues" class=here>here</a>!</h4></center>
+<center>
+
+<iframe class="dvd" src="https://forkphorus.github.io/embed.html?id=523935871&ui=false" width="480" height="360" allowfullscreen="true" allowtransparency="true"></iframe>
+
+
+`
+            ),
+          };
+        },
+        methods: {
+          async login() {
+            console.log(this)
+          }
+        },
+        async mounted() {
+            if (localStorage.privateCode) {
+              const codeData = await fetch(
+                `https://fluffyscratch.hampton.pw/auth/verify/v2/${localStorage.privateCode}`
+              )
+              if (codeData.valid) {
+                this.login()
+              }
+            }
+          const privateCode = new URL(location).searchParams.get("privateCode");
+          if (privateCode) {
+            const codeData = await (
+              await fetch(
+                `https://fluffyscratch.hampton.pw/auth/verify/v2/${privateCode}`
+              )
+            ).json();
+            if (codeData.valid) {
+              console.log(codeData.username);
+              localStorage.privateCode = privateCode;
+              this.login()
+            } else {
+              console.log("failed");
+            }
+          }
+        },
+      });
+    </script>
+  
+
+<script>app.component("navbar", {
+  data() {
+    return {
+      items: [
+        {
+          text: "Add/View URLS",
+          bold: true,
+          href: "/login",
+        },
+      ],
+    };
+  },
+  props: [],
+  template: `
+  <div id="navbar">
+    <ul>
+    <a href="/">
+      <li>
+        <div id="block">
+          <u>URLS</u>
+        </div>
+      </li>    
+    </a>
+
+      <a
+      :href="item.href"
+      :data-smallsize="item.smallSize" 
+      v-for="item of items">
+      <li
+      :class="item.button ? 'button' : ''"
+      :style="item.bold ? 'font-weight: 500' : ''"><p>{{ item.text }}</p></li>
       </a>
-    </p>
-  </body>
-</html>
+    </ul>
+  </div>`,
+});
+app.component("footerbar", {
+  data() {
+    return {
+      columns: [
+        [
+
+        ],
+      ],
+    };
+  },
+  props: [],
+  template: `
+  <div id="footer">
+    <ul>
+      <li>
+        
+      </li>
+      <li v-for="column of columns">
+        <ul>
+          <li v-for="item of column">{{ item.text }}</li>
+        </ul>
+      </li> 
+    </ul>
+    <center><div id="copyright">URLS is a fork of <a href="https://github.com/nelsontky/gh-pages-url-shortener">nelsontky's URL shortener</a>, for personal use by 608 and friends.</center>
+    <center>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<iframe src="https://ghbtns.com/github-btn.html?user=real608&repo=urls&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub" style="position:relative;top:6px;right:50px;"></iframe>
+    </center>
+    </div>
+  </div>`,
+});
+app.mount("body");
+</script></body></html>
